@@ -88,7 +88,7 @@ Vagrant.configure("2") do |config|
               mkdir -p /raid_part/fs{1,2,3,4,5}
               for i in $(seq 1 5); do mount /dev/md0p$i /raid_part/fs$i; done
               echo "#NEW DEVICE" >> /etc/fstab
-              for i in $(seq 1 5); do echo `sudo blkid /dev/md0p$i | awk '{print $2}'` /raid_part/fs$i ext4 defaults 0 0 >> /etc/fstab; done
+              for i in $(seq 1 5); do echo `sudo blkid /dev/md0p$i | awk '{print $2}'` /raid_part/fs$i ext4 defaults 0 2 >> /etc/fstab; done
   	  SHELL
 
       end
