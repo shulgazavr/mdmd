@@ -89,8 +89,6 @@ Vagrant.configure("2") do |config|
               for i in $(seq 1 5); do mount /dev/md0p$i /raid_part/fs$i; done
               echo "#NEW DEVICE" >> /etc/fstab
               for i in $(seq 1 5); do echo `sudo blkid /dev/md0p$i | awk '{print $2}'` /raid_part/fs$i ext4 defaults 0 0 >> /etc/fstab; done
-              sed -i '65s/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-              systemctl restart sshd
   	  SHELL
 
       end
